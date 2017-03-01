@@ -1,7 +1,7 @@
-var
-  mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  ObjectId = mongoose.Schema.Types.ObjectId;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = mongoose.Schema.Types.ObjectId;
+// ======================================================
 
 var Users = new Schema({
   email: String,
@@ -26,5 +26,7 @@ mongoose.model('Users', Users);
 mongoose.model('Pins', Pins);
 mongoose.model('Photos', Photos);
 
-mongoose.connect('mongodb://localhost:27017/trippin');
-
+// ======================================================
+// var databaseURL = 'mongodb://localhost:27017/trippin';
+var databaseURL = 'mongodb://database/trippin';
+mongoose.connect(databaseURL);

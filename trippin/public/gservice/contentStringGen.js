@@ -17,8 +17,9 @@ window.contentStringGen = function(pin) {
           display.style = 'visibility:hidden;';
         }
         if (element) {
-          display.height = ((e.path[0].height / e.path[0].width) * 140);
-          display.width  = ((e.path[0].width / e.path[0].height) * 140);
+          display.height = 100;
+          // display.height = ((e.path[0].height / e.path[0].width) * 140);
+          // display.width  = ((e.path[0].width / e.path[0].height) * 140);
           element.insertBefore(display, element.childNodes[0]);
           setTimeout(function() {
             last = id;
@@ -29,6 +30,6 @@ window.contentStringGen = function(pin) {
     };
   })(pin._id, display);
   img.src = pin.image;
-  
+
   return contentString;
 }

@@ -2,9 +2,12 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
+// ==================================================
 /* POST login info. */
 router.post('/', function(req, res, next) {
+
   var Users = mongoose.model('Users');
+
   Users.find({ email: req.body.email })
   .then(function (users) {
     if (users.length < 1) {

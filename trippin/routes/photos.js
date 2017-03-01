@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
+// ==================================================
 /* GET photos */
 router.get('/', function(req, res, next) {
   var Photos = mongoose.model('Photos');
@@ -11,6 +12,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
+// ==================================================
 /* POST photo */
 router.post('/', function(req, res, next) {
   var Photos = mongoose.model('Photos');

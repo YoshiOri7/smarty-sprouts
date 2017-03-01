@@ -1,7 +1,8 @@
 <html lang="en">
   <head>
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="249488271008-ktn21fpv1l0c1ckokkvpvj431onsj7qs.apps.googleusercontent.com">
+ <meta name="google-signin-client_id" content="29051041350-1reo93m5jnbij0uk32j1dvglv24c6etf.apps.googleusercontent.com">
+<!--  <meta name="google-signin-client_id" content="249488271008-ktn21fpv1l0c1ckokkvpvj431onsj7qs.apps.googleusercontent.com"> -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -15,7 +16,18 @@
       <div id="loginTitle">
         <h1>Trip<span>Pin</span></h1>
       </div>
-      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="top: 55%; left: 45%; position: absolute;"></div>
+
+      <!-- Google+ Signin -->
+      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="top: 45%; left: 45%; position: absolute;"></div>
+
+      <!-- Guest Signin -->
+      <div class="guest" style="top: 50%; left: 45%; position: absolute;">
+        <button class="guestBtn" onclick= "guestSignIn()" sytle>GuestSignin</button>
+        <div class="guestText">Please use Guest button to view prepopulated trip data</div>
+        <div class="guestText">(Google+ signin does not work as Google only accepts registered URL)</div>
+      <div>
+
+
       <script>
         var loggedOut = false;
         function onSignIn(googleUser) {
@@ -45,6 +57,24 @@
             });
           }
         };
+
+        function guestSignIn() {
+          // Send email and id token to server
+          $.ajax({
+            url: '/login',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+              email: 'guest@gmail.com',
+              token: 'guest'
+            })
+          }).done(function(data) {
+            // Redirect on sign-in
+            data = JSON.parse(data);
+            window.location.href = data.url;
+          });
+        };
+
       </script>
     </div>
   </body>

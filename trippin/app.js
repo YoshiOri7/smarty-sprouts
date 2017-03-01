@@ -20,7 +20,8 @@ var logout = require('./routes/logout');
 
 // create session
 app.use(session({
-  secret: 'LjPe33XGTnq3FqzxSHigL_uy',
+  secret: 'dwAcLdZS2MS6UCl8davipo3N',
+  // secret: 'LjPe33XGTnq3FqzxSHigL_uy',
   cookie: { maxAge: 2628000000 },
   resave: false,
   saveUninitialized: true

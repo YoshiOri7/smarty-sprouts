@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
+// ==================================================
 /* GET pins. */
 router.get('/', function(req, res, next) {
   if (!req.session._id) {
@@ -15,6 +16,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
+// ==================================================
 /* POST pins. */
 router.post('/', function(req, res, next) {
   if (!req.session._id) {
